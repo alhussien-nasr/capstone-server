@@ -20,7 +20,9 @@ const app = express();
 // };
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.get("/", (req, res) => {
+  res.send("api is working");
+});
 app.post("/payment-sheet", async (req, res) => {
   // Use an existing Customer ID if this is a returning customer.
   try {
