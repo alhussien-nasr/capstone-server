@@ -23,6 +23,10 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.send("api is working");
 });
+app.get("/payment-sheet", (req, res) => {
+  res.send("payment-sheet is working");
+});
+
 app.post("/payment-sheet", async (req, res) => {
   // Use an existing Customer ID if this is a returning customer.
   try {
@@ -50,7 +54,6 @@ app.post("/payment-sheet", async (req, res) => {
       publishableKey:
         "pk_test_51MLRwsK1laAoewbCONkr7O5BKnKN6KEQj0skaAmCI7xcGN0jI8IONf90NmDSseBAsFQXIiGdu6Y0yclUokXIwnXl00VgvowXsq",
     });
-    res.send("api working");
   } catch (error) {
     console.log(error);
   }
@@ -58,5 +61,4 @@ app.post("/payment-sheet", async (req, res) => {
 
 app.listen(3000, (req, res) => {
   console.log("server working");
-  res.send("api work");
 });
